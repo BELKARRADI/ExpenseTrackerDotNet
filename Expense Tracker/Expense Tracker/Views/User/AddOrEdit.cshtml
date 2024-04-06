@@ -1,0 +1,45 @@
+﻿@model Expense_Tracker.Models.User
+
+@{
+    ViewData["PageTitle"] = Model.UserId == 0 ? "Create a new user" : "Edit user";
+}
+
+
+<div class="row">
+    <div>
+        <div class="widget p-5" style="background-color:#b3b5b8">
+            <form asp-action="AddOrEdit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" name="UserId" value="@Model.UserId" />
+                
+                <div class="mb-3">
+                    <ejs-textbox id="username" placeholder="Username" ejs-for="Username" floatLabelType="Always"></ejs-textbox>
+                    <span asp-validation-for="Username" class="text-danger fs-6"></span>
+                </div>
+                <div class="mb-3">
+                    <ejs-textbox id="firstname" placeholder="First Name" ejs-for="FirstName" floatLabelType="Always"></ejs-textbox>
+                    <span asp-validation-for="FirstName" class="text-danger fs-6"></span>
+                </div>
+                <div class="mb-3">
+                    <ejs-textbox id="lastname" placeholder="Last Name" ejs-for="LastName" floatLabelType="Always"></ejs-textbox>
+                    <span asp-validation-for="LastName" class="text-danger fs-6"></span>
+                </div>
+                <div class="mb-3">
+                    <ejs-textbox id="role" placeholder="Role" ejs-for="Role" floatLabelType="Always"></ejs-textbox>
+                    <span asp-validation-for="Role" class="text-danger fs-6"></span>
+                </div>
+                <div class="mb-3">
+                    <ejs-textbox id="password" placeholder="Password" ejs-for="Password" floatLabelType="Always"></ejs-textbox>
+                </div>
+                <ejs-button id="submit" type="submit" content="Submit" cssClass="e-success"></ejs-button>
+            </form>
+        </div>
+
+</div>
+
+
+@*@section Scripts {
+    @{
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+}
+}*@
